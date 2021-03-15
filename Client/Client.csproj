@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\browserconfig.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Pages\Index.razor" />
     <None Include="Shared\MainLayout.razor" />
     <None Include="Shared\NavMenu.razor" />
