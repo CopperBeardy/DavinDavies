@@ -1,96 +1,63 @@
 ﻿@page "/Portfolio"
-    <div class="pagecontainer mt-5 p-3">
-        <div class="container portfolio">
+<div class="pagecontainer mt-5 p-3">
+    <div class="container portfolio">
 
-            <div class="section-title ">
-                <h2>Portfolio</h2>
-                <p>My Projects</p>
-            </div>
-
-            <div class="row">
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                <div class="icon-box">
-                    <div class="icon"><i class="oi oi-project"></i></div>
-                    <h4><a href="https://github.com/CopperBeardy/CookTo">CookTo</a></h4>
-                    <p> recipe website which is more reader friendly. using C# Blazor WASM Hosted, Minimial APIs, Mongo Database, Azure B2C </p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                <div class="icon-box">
-                    <div class="icon"><i class="oi oi-project"></i></div>
-                    <h4><a href="https://github.com/CopperBeardy/MeasurementConvertor">Measurement Convertor</a></h4>
-                    <p>Nuget project using C# .net6 to convert various measurements to other measurements of the same type, example: grams to ounces </p>
-                </div>
-            </div>
-
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                    <div class="icon-box">
-                        <div class="icon"><i class="oi oi-project"></i></div>
-                        <h4><a href="https://github.com/CopperBeardy/MedicationAssistant">Medication Assistant</a></h4>
-                        <p>Application is to remind people via SMS to take there medicaitons Blazor Server, C# </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-                    <div class="icon-box">
-                        <div class="icon"><i class="oi oi-project"></i></div>
-                        <h4><a href="https://github.com/CopperBeardy/GoMemoryBlazor">Go Memory Blazor</a></h4>
-                        <p>Variation on the Xamarin Go memory applciaiton using Blazor wasm hosted, C# </p>
-                    </div>
-                </div>
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-                    <div class="icon-box">
-                        <div class="icon"><i class="oi oi-project"></i></div>
-                        <h4><a href="https://github.com/CopperBeardy/Gomem">Go Memory</a></h4>
-                        <p>No frill Xamarin.forms app release on the app store, using C#, .Net Core & Sqlite </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-                    <div class="icon-box">
-                        <div class="icon"><i class="oi oi-project"></i></div>
-                        <h4><a href="https://github.com/CopperBeardy/DavinDavies">Profile website</a></h4>
-                        <p>Website based on a JS design by <a href="https://bootstrapmade.com/">BootstrapMade</a> and converted to use Blazor WASM, C# </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 ">
-                    <div class="icon-box">
-                        <div class="icon"><i class="oi oi-project"></i></div>
-                        <h4><a href="https://github.com/CopperBeardy/DealLocator">Deal Locator </a></h4>
-                        <p>Msc capstone project to provide a minimal work demostration of research questions</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-                    <div class="icon-box">
-                        <div class="icon"><i class="oi oi-project"></i></div>
-                        <h4><a href="https://github.com/CopperBeardy/GPS">GPS Distance App</a></h4>
-                        <p>WPF, C# App for measuring distance and take earth curveture in to account, developed live on stream with contribution from viewers and development community</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-                    <div class="icon-box">
-                        <div class="icon"><i class="oi oi-project"></i></div>
-                        <h4><a href="https://github.com/CopperBeardy/SEPUNI">Small Business website</a></h4>
-                        <p>Website was developed to meet case study requirment on Msc module, C#, EF Core,.Net Core,Xunit</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-                    <div class="icon-box">
-                        <div class="icon"><i class="oi oi-project"></i></div>
-                        <h4><a href="https://github.com/CopperBeardy/IncidentReporterApp">Incident reporter</a></h4>
-                        <p>Prototype app for a Bsc module using C#, Xamarin.forms, Sqlite</p>
-                    </div>
-                </div>
-
-            </div>
-
+        <div class="section-title ">
+            <h2>Portfolio</h2>
+            <p>My Projects</p>
         </div>
-        </div>
-        @code {
 
-        }
+        <div class="row">
+            <ProjectCard Link="https://github.com/CopperBeardy/CookTo"
+                         LinkDisplayText="CookTo"
+                         Description="recipe website which is more reader friendly. using C# Blazor WASM Hosted, Minimial APIs, Mongo Database, Azure B2C">
+            </ProjectCard>
+
+            <ProjectCard Link="https://github.com/CopperBeardy/MeasurementConvertor"
+                         LinkDisplayText="Measurement Convertor"
+                         Description="Nuget project using C# .net6 to convert various measurements to other measurements of the same type, example: grams to ounces">
+            </ProjectCard>
+
+            <ProjectCard Link="https://github.com/CopperBeardy/MedicationAssistant"
+                         LinkDisplayText="Medication Assistant"
+                         Description="Application is to remind people via SMS to take there medicaitons Blazor Server, C#">
+            </ProjectCard>
+
+            <ProjectCard Link="https://github.com/CopperBeardy/GoMemoryBlazor"
+                         LinkDisplayText="Go Memory Blazor"
+                         Description="Variation on the Xamarin Go memory applciaiton using Blazor wasm hosted, C#">
+            </ProjectCard>
+
+            <ProjectCard Link="https://github.com/CopperBeardy/GoMem"
+                         LinkDisplayText="Go Memory"
+                         Description="No frills Xamarin.forms app release on the app store, using C#, .Net Core & Sqlite">
+            </ProjectCard>
+
+            <ProjectCard Link="https://github.com/CopperBeardy/DavinDavies"
+                         LinkDisplayText="Profile website"
+                         Description="Website based on a JS design by BootstrapMade.com and converted to use Blazor WASM, C#">
+            </ProjectCard>
+
+            <ProjectCard Link="https://github.com/CopperBeardy/DealLocator"
+                         LinkDisplayText="DealLocator"
+                         Description="Msc capstone project to provide a minimal work demostration of research questions">
+            </ProjectCard>
+
+            <ProjectCard Link="https://github.com/CopperBeardy/GPS"
+                         LinkDisplayText="GPS Distance App"
+                         Description="WPF, C# App for measuring distance and take earth curveture in to account, developed live on stream with contribution from viewers and development community">
+            </ProjectCard>
+
+            <ProjectCard Link="https://github.com/CopperBeardy/SEPUNI"
+                         LinkDisplayText="Small Business website"
+                         Description="Website was developed to meet case study requirment on Msc module, C#, EF Core,.Net Core,Xunit">
+            </ProjectCard>
+
+            <ProjectCard Link="https://github.com/CopperBeardy/IncidentReporterApp"
+                         LinkDisplayText="Incident reporter"
+                         Description="Prototype app for a Bsc module using C#, Xamarin.forms, Sqlite">
+            </ProjectCard>
+        </div>
+
+    </div>
+</div>

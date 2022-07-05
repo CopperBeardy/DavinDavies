@@ -1,0 +1,17 @@
+﻿<div class="col-sm-4  d-flex align-items-stretch mt-1 mb-1">
+    <div class="icon-box">
+        <div class="icon"><i class="oi oi-project"></i></div>
+        <h4><a href="@Link">@LinkDisplayText</a></h4>
+        <p>@Description</p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Link { get; set; }
+    [Parameter]
+    public string LinkDisplayText{ get; set; }
+    [Parameter]
+    public string Description { get; set; }
+
+}
