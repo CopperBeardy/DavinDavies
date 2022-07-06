@@ -88,58 +88,30 @@
             </div>
 
             <div class="row ">
-            <div class="col-lg-3 col-md-4 mt-4 ">
-                    <div class="icon-box">
-                        <i class="oi oi-code" style="color: #8307e4;"></i>
-                        <h3>Live Coding</h3>
-                    </div>
-                </div>
-            <div class="col-lg-3 col-md-4 mt-4">
-                    <div class="icon-box">
-                        <i class="oi oi-lightbulb" style="color: #ffbb2c;"></i>
-                        <h3>MOOC Course's</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4">
-                    <div class="icon-box">
-                        <i class="oi oi-sun" style="color: #5578ff;"></i>
-                        <h3>Gardening</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4 ">
-                    <div class="icon-box">
-                        <i class="oi oi-document" style="color: #e80368;"></i>
-                        <h3>AudioBooks</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4 mb-4">
-                    <div class="icon-box">
-                        <i class="oi oi-tablet" style="color: #e361ff;"></i>
-                        <h3>Computer Gaming</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4 mb-4">
-                    <div class="icon-box">
-                        <i class="oi oi-bolt" style="color: #47aeff;"></i>
-                        <h3>Ethic's</h3>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 mt-4 mb-4">
-                    <div class="icon-box">
-                        <i class="oi oi-book" style="color: #a7becc;"></i>
-                        <h3>Education</h3>
-                    </div>
-                </div>
-            <div class="col-lg-3 col-md-4 mt-4 mb-4">
-                <div class="icon-box">
-                    <i class="oi oi-badge" style="color: #366e1d;"></i>
-                    <h3>Cooking</h3>
-                </div>
+                  @foreach (var interest in Interests)
+                 {
+                     <InterestCard Interest="interest"/>
+                 }           
             </div>
-            </div>
-
         </div><!-- End Interests -->
     </div>
-    @code {
+@code {
+    public List<InterestItem> Interests { get; set; } = new List<InterestItem>();
 
+    protected override void OnInitialized()
+    {
+        Interests = new List<InterestItem>()
+        {
+            new InterestItem(){Title="LiveCoding", Icon="oi-code",IconColor="#8307e4;" },
+            new InterestItem(){Title="MOOCs", Icon="oi-lightbulb",IconColor="#ffbb2c;" },
+            new InterestItem(){Title="Gardening", Icon="oi-sun",IconColor="#5578ff;" },
+            new InterestItem(){Title="AudioBooks", Icon="oi-document",IconColor="#e80368;" },
+            new InterestItem(){Title="Computer Gaming", Icon="oi-tablet",IconColor="#e361ff" },
+            new InterestItem(){Title="Ethics", Icon="oi-bolt",IconColor="#47aeff;" },
+            new InterestItem(){Title="Education", Icon="oi-book",IconColor="#a7becc;" },
+            new InterestItem(){Title="Cooking", Icon="oi-badge",IconColor="#366e1d;" }
+        };
+        StateHasChanged();
+       
     }
+}

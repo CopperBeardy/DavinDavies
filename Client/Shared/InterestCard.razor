@@ -1,0 +1,10 @@
+﻿<div class="col-lg-3 col-md-4 mt-4 mb-4">
+    <div class="icon-box">
+        <i class="oi @Interest.Icon" style="color: @Interest.IconColor;"></i>
+        <h6>@Interest.Title</h6>
+    </div>
+</div>
+@code {
+    [Parameter]public InterestItem Interest { get; set; } = new InterestItem();
+   
+}
