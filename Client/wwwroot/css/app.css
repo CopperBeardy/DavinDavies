@@ -1,5 +1,10 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+.project{
+    width: 33%;
+    height: w
+} 
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
@@ -238,7 +243,7 @@ section .container {
     color: #fff;
 }
 
-
+/*
 .interests .icon-box {
     display: flex;
     align-items: center;
@@ -264,7 +269,7 @@ section .container {
 
     .interests .icon-box:hover {
         background: rgba(255, 255, 255, 0.12);
-    }
+    }*/
 
 
 

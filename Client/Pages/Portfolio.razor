@@ -1,4 +1,6 @@
-﻿@page "/Portfolio"
+﻿@using Octokit;
+@using System.Web;
+@page "/Portfolio"
 <div class="pagecontainer mt-5 p-3">
     <div class="container portfolio">
 
@@ -6,58 +8,36 @@
             <h2>Portfolio</h2>
             <p>My Projects</p>
         </div>
+        <div class="container">
+            <div class="d-flex row">
+                @foreach (var project in Projects)
+                {
+                    <ProjectCard Link="@project.URI"
+                             LinkDisplayText="@project.Name"
+                             Description="@project.Description">
+                    </ProjectCard>
 
-        <div class="row">
-            <ProjectCard Link="https://github.com/CopperBeardy/CookTo"
-                         LinkDisplayText="CookTo"
-                         Description="recipe website which is more reader friendly. using C# Blazor WASM Hosted, Minimial APIs, Mongo Database, Azure B2C">
-            </ProjectCard>
-
-            <ProjectCard Link="https://github.com/CopperBeardy/MeasurementConvertor"
-                         LinkDisplayText="Measurement Convertor"
-                         Description="Nuget project using C# .net6 to convert various measurements to other measurements of the same type, example: grams to ounces">
-            </ProjectCard>
-
-            <ProjectCard Link="https://github.com/CopperBeardy/MedicationAssistant"
-                         LinkDisplayText="Medication Assistant"
-                         Description="Application is to remind people via SMS to take there medicaitons Blazor Server, C#">
-            </ProjectCard>
-
-            <ProjectCard Link="https://github.com/CopperBeardy/GoMemoryBlazor"
-                         LinkDisplayText="Go Memory Blazor"
-                         Description="Variation on the Xamarin Go memory applciaiton using Blazor wasm hosted, C#">
-            </ProjectCard>
-
-            <ProjectCard Link="https://github.com/CopperBeardy/GoMem"
-                         LinkDisplayText="Go Memory"
-                         Description="No frills Xamarin.forms app release on the app store, using C#, .Net Core & Sqlite">
-            </ProjectCard>
-
-            <ProjectCard Link="https://github.com/CopperBeardy/DavinDavies"
-                         LinkDisplayText="Profile website"
-                         Description="Website based on a JS design by BootstrapMade.com and converted to use Blazor WASM, C#">
-            </ProjectCard>
-
-            <ProjectCard Link="https://github.com/CopperBeardy/DealLocator"
-                         LinkDisplayText="DealLocator"
-                         Description="Msc capstone project to provide a minimal work demostration of research questions">
-            </ProjectCard>
-
-            <ProjectCard Link="https://github.com/CopperBeardy/GPS"
-                         LinkDisplayText="GPS Distance App"
-                         Description="WPF, C# App for measuring distance and take earth curveture in to account, developed live on stream with contribution from viewers and development community">
-            </ProjectCard>
-
-            <ProjectCard Link="https://github.com/CopperBeardy/SEPUNI"
-                         LinkDisplayText="Small Business website"
-                         Description="Website was developed to meet case study requirment on Msc module, C#, EF Core,.Net Core,Xunit">
-            </ProjectCard>
-
-            <ProjectCard Link="https://github.com/CopperBeardy/IncidentReporterApp"
-                         LinkDisplayText="Incident reporter"
-                         Description="Prototype app for a Bsc module using C#, Xamarin.forms, Sqlite">
-            </ProjectCard>
+                }
+            </div>
+            </div>
+            </div>
         </div>
 
-    </div>
-</div>
+@code {
+    public List<ProjectItem> Projects { get; set; } = new List<ProjectItem>();
+    protected override async Task OnInitializedAsync()
+    {
+        var client = new GitHubClient(new ProductHeaderValue("Portfolio-app"), new Uri("https://github.com/"));
+        var result = await client.Repository.GetAllForUser("copperbeardy");
+        foreach (var item in result)
+        {
+            Projects.Add(new ProjectItem()
+                        {
+                            Name = item.Name,
+                            URI = item.HtmlUrl
+                        });
+                }
+     
+                StateHasChanged();
+            }
+        }
